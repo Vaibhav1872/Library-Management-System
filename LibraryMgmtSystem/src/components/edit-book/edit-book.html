@@ -1,0 +1,41 @@
+<div class="edit-book-container">
+  <div class="edit-book-box" *ngIf="book">
+    <h1>Edit Book Details</h1>
+    <p>Update the information for "{{ book.title }}".</p>
+    
+    <form (ngSubmit)="onUpdateBook()">
+      
+      <div class="input-group">
+        <label for="title">Book Title</label>
+        <input id="title" type="text" [(ngModel)]="book.title" name="title" required>
+      </div>
+
+      <div class="input-group">
+        <label for="author">Author</label>
+        <input id="author" type="text" [(ngModel)]="book.author" name="author" required>
+      </div>
+
+      <div class="input-group">
+        <label for="price">Price (₹)</label>
+        <input id="price" type="number" [(ngModel)]="book.price" name="price" required>
+      </div>
+
+      <div class="input-group">
+        <label>Current Cover Image</label>
+        <img [src]="currentImageUrl" alt="Current cover" class="current-image">
+      </div>
+
+      <div class="input-group">
+        <label for="image">Upload New Cover Image (Optional)</label>
+        <input id="image" type="file" (change)="onFileSelected($event)" name="image">
+      </div>
+
+      <div *ngIf="message" [ngClass]="isError ? 'error-message' : 'success-message'">
+        {{ message }}
+      </div>
+
+      <button type="submit" class="submit-button">Update Book</button>
+    </form>
+  </div>
+</div>
+

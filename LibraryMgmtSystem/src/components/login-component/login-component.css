@@ -1,0 +1,94 @@
+/* Main container to center the login form */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  min-height: 100vh; /* Make it take the full viewport height */
+  background-color: #f1f5f9; /* A light gray background like the home page */
+}
+
+/* The white box holding the form content */
+.login-box {
+  background-color: #ffffff;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  max-width: 450px;
+  width: 100%;
+  text-align: center;
+}
+
+.login-box h1 {
+  color: #1e3a8a; /* Dark blue from home page */
+  margin-bottom: 10px;
+  font-size: 28px;
+}
+
+.login-box p {
+  color: #475569; /* Gray from home page */
+  margin-bottom: 30px;
+}
+
+/* Form Styling */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Group for each label and input */
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  color: #334155; /* Dark gray from home page */
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #e2e8f0; /* Light border from home page */
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #2563eb; /* Blue from home page button */
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2);
+}
+
+/* Login Button Styling */
+.login-button {
+  margin-top: 10px;
+  padding: 12px 20px;
+  background-color: #2563eb; /* Primary blue from home page */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #1d4ed8; /* Darker blue from home page hover */
+}
+
+/* Error Message Styling */
+.error-message {
+  color: #dc2626; /* A standard error red */
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+  text-align: center;
+}

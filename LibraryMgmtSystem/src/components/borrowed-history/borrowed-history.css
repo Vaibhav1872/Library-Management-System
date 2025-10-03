@@ -1,0 +1,59 @@
+.admin-table-container {
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #f1f5f9;
+}
+
+.admin-table-box {
+  background-color: #ffffff;
+  padding: 30px 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 900px;
+}
+
+.admin-table-box h1 {
+  color: #1e3a8a;
+  margin-bottom: 10px;
+}
+
+.admin-table-box p {
+  color: #475569;
+  margin-bottom: 30px;
+}
+
+.table-wrapper {
+  overflow-x: auto; /* For responsiveness on small screens */
+}
+
+.borrowed-books-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.borrowed-books-table th,
+.borrowed-books-table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.borrowed-books-table thead th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  color: #334155;
+}
+
+.borrowed-books-table tbody tr:hover {
+  background-color: #f1f5f9;
+}
+
+.loading-spinner, .no-records-message {
+  text-align: center;
+  padding: 40px;
+  color: #64748b;
+  font-size: 16px;
+}

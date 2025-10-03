@@ -1,0 +1,44 @@
+<div class="register-container">
+  <div class="register-box">
+    <h1>Register New User</h1>
+    <p>Create a new account for a student or an admin.</p>
+    
+    <form (ngSubmit)="onRegister()">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input 
+          id="username" 
+          type="text" 
+          [(ngModel)]="username" 
+          name="username"
+          placeholder="Enter a unique username"
+          required>
+      </div>
+
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input 
+          id="password" 
+          type="password" 
+          [(ngModel)]="password" 
+          name="password"
+          placeholder="Enter a strong password"
+          required>
+      </div>
+
+      <div class="input-group">
+        <label for="role">Role</label>
+        <select id="role" [(ngModel)]="role" name="role" required>
+          <option value="student">Student</option>
+          <option value="admin">Admin</option>
+        </select>
+      </div>
+
+      <div *ngIf="message" class="message" [ngClass]="{'success': !isError, 'error': isError}">
+        {{ message }}
+      </div>
+
+      <button type="submit" class="register-button">Register User</button>
+    </form>
+  </div>
+</div>

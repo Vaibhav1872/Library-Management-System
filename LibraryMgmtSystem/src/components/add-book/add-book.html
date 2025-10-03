@@ -1,0 +1,67 @@
+<!-- Main container for the Add Book form -->
+<div class="add-book-container">
+  <div class="add-book-box">
+    <h1>Add a New Book</h1>
+    <p>Fill out the details below to add a new book to the library catalog.</p>
+    
+    <!-- Add Book Form -->
+    <form (ngSubmit)="onAddBook()">
+      
+      <!-- Title Input -->
+      <div class="input-group">
+        <label for="title">Book Title</label>
+        <input 
+          id="title" 
+          type="text" 
+          [(ngModel)]="title" 
+          name="title"
+          placeholder="e.g., The Great Gatsby"
+          required>
+      </div>
+
+      <!-- Author Input -->
+      <div class="input-group">
+        <label for="author">Author</label>
+        <input 
+          id="author" 
+          type="text" 
+          [(ngModel)]="author" 
+          name="author"
+          placeholder="e.g., F. Scott Fitzgerald"
+          required>
+      </div>
+
+      <!-- Price Input -->
+      <div class="input-group">
+        <label for="price">Price (₹)</label>
+        <input 
+          id="price" 
+          type="number" 
+          [(ngModel)]="price" 
+          name="price"
+          placeholder="e.g., 250"
+          required>
+      </div>
+
+      <!-- Image File Input -->
+      <div class="input-group">
+        <label for="image">Cover Image</label>
+        <input 
+          id="image" 
+          type="file" 
+          (change)="onFileSelected($event)"
+          name="image"
+          accept="image/png, image/jpeg"
+          required>
+      </div>
+
+      <!-- Message Display -->
+      <div *ngIf="message" [ngClass]="isError ? 'error-message' : 'success-message'">
+        {{ message }}
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="submit-button">Add Book</button>
+    </form>
+  </div>
+</div>

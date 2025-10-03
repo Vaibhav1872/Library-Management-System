@@ -1,0 +1,33 @@
+<div class="admin-table-container">
+  <div class="admin-table-box">
+    <h1>All Borrowed Books</h1>
+    <p>This is a live record of all books currently checked out from the library.</p>
+
+    <div *ngIf="isLoading" class="loading-spinner">
+      Loading records...
+    </div>
+
+    <div *ngIf="!isLoading && borrowedRecords.length > 0" class="table-wrapper">
+      <table class="borrowed-books-table">
+        <thead>
+          <tr>
+            <th>Book Title</th>
+            <th>Borrowed By (Username)</th>
+            <th>Date Borrowed</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of borrowedRecords">
+            <td>{{ record.bookTitle }}</td>
+            <td>{{ record.username }}</td>
+            <td>{{ record.borrowDate | date: 'longDate' }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div *ngIf="!isLoading && borrowedRecords.length === 0" class="no-records-message">
+      <p>There are currently no books borrowed from the library.</p>
+    </div>
+  </div>
+</div>

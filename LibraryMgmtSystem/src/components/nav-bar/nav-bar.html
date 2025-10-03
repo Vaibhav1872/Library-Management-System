@@ -1,0 +1,32 @@
+<nav class="navbar">
+  <div class="navbar-logo">Library Management</div>
+  <ul class="navbar-menu">
+    <!-- Links for ANY Logged In User -->
+    <ng-container *ngIf="isUserLoggedIn">
+      <li><a routerLink="/home">Home</a></li>
+      
+      <!-- Admin-only links -->
+      <ng-container *ngIf="isAdmin">
+        <li><a routerLink="/register-user">Register User</a></li>
+        <li><a routerLink="/add-book">Add Book</a></li>
+        <!-- THIS IS THE NEW LINK FOR ADMINS -->
+        <li><a routerLink="/admin/borrowed-books">Borrowed Books</a></li>
+      </ng-container>
+
+      <!-- Student-only link -->
+      <ng-container *ngIf="!isAdmin">
+        <li><a routerLink="/my-books">My Books</a></li>
+      </ng-container>
+      
+      <li><a (click)="logout()" style="cursor: pointer;">Logout</a></li>
+    </ng-container>
+
+    <!-- Links for Logged Out Users -->
+    <ng-container *ngIf="!isUserLoggedIn">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/contact-us">Contact Us</a></li>
+      <li><a routerLink="/login">Login</a></li>
+    </ng-container>
+  </ul>
+</nav>
+

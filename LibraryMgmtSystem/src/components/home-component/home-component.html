@@ -1,0 +1,55 @@
+<div class="home-container">
+  <div class="home-box">
+    <h1>Welcome, {{ username }}!</h1>
+    <p>Library Management Dashboard</p>
+
+    <!-- NEW: Search Bar Section -->
+    <div class="search-container">
+      <div class="search-input-group">
+        <input 
+          type="text" 
+          class="search-input"
+          placeholder="Search by book title..."
+          [(ngModel)]="searchTerm"
+          (keyup.enter)="onSearch()">
+        
+        <input 
+          type="number" 
+          class="price-input"
+          placeholder="Max price (₹)"
+          [(ngModel)]="maxPrice"
+          (keyup.enter)="onSearch()">
+      </div>
+      <div class="search-button-group">
+        <button (click)="onSearch()" class="search-button">Search</button>
+        <button (click)="clearSearch()" class="clear-button">Clear</button>
+      </div>
+    </div>
+
+    <h2>Featured Books</h2>
+    <div class="book-container">
+      <div class="book-card" *ngFor="let book of books">
+        <img [src]="book.imageUrl.startsWith('/') ? 'http://localhost:8080' + book.imageUrl : book.imageUrl" alt="{{ book.title }}">
+        <h3>{{ book.title }}</h3>
+        <p>Author: {{ book.author }}</p>
+        <p>Price: ₹{{ book.price }}</p>
+        <div class="button-group">
+          <ng-container *ngIf="isAdmin">
+            <button (click)="editBook(book)" class="edit-button">Edit</button>
+            <button (click)="deleteBook(book)" class="delete-button">Delete</button>
+          </ng-container>
+          <ng-container *ngIf="!isAdmin">
+            <button (click)="borrowBook(book)" [disabled]="book.isBorrowed">
+              {{ book.isBorrowed ? 'Borrowed' : 'Borrow' }}
+            </button>
+          </ng-container>
+        </div>
+      </div>
+      <!-- Message for when no books are found -->
+      <div *ngIf="books.length === 0" class="no-books-found">
+        <p>No books found matching your criteria.</p>
+      </div>
+    </div>
+  </div>
+</div>
+

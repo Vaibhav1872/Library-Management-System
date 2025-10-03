@@ -1,0 +1,43 @@
+<div class="login-container">
+  <div class="login-box">
+    <h1>Library Login</h1>
+    <p>Please enter your credentials to continue.</p>
+    
+    <!-- Login Form -->
+    <form (ngSubmit)="onLogin()">
+      
+      <!-- Username Input -->
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input 
+          id="username" 
+          type="text" 
+          [(ngModel)]="username" 
+          name="username"
+          placeholder="Enter your username"
+          required>
+      </div>
+
+      <!-- Password Input -->
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input 
+          id="password" 
+          type="password" 
+          [(ngModel)]="password" 
+          name="password"
+          placeholder="Enter your password"
+          required>
+      </div>
+
+      <!-- Error Message Display -->
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="login-button">Login</button>
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<!-- Main "My Books" Content -->
+<div class="my-books-container">
+  <div class="my-books-box">
+    <h1>My Borrowed Books</h1>
+    <p>Here are the books you currently have checked out.</p>
+
+    <div *ngIf="borrowedBooks.length > 0; else noBooks">
+      <div class="borrowed-book-card" *ngFor="let book of borrowedBooks">
+        <img [src]="book.imageUrl" alt="{{ book.title }}" class="book-image">
+        <div class="book-details">
+          <h3>{{ book.title }}</h3>
+          <p>by {{ book.author }}</p>
+          <p *ngIf="book.borrowedDate">Borrowed on: {{ book.borrowedDate | date: 'mediumDate' }}</p>
+        </div>
+        <button (click)="returnBook(book)" class="return-button">Return Book</button>
+      </div>
+    </div>
+
+    <ng-template #noBooks>
+      <div class="no-books-message">
+        <p>You have not borrowed any books yet.</p>
+      </div>
+    </ng-template>
+  </div>
+</div>
+
